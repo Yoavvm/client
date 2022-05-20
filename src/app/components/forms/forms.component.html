@@ -1,0 +1,23 @@
+<div class="forms">
+
+    <div class="form-container">
+        <h3>Select which floor you would like to review</h3>
+        <select [(ngModel)]="floor" name="" id="">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+        </select>
+    </div>
+    <div class="form-container">
+        <h3>How would you rate the taste of the water on this floor?</h3>
+        <input type="number" min="1" max="10" [(ngModel)]="score" (change)="validateInput()">
+    </div>
+
+    <div class="form-container">
+        
+    </div>
+    <div class="form-container">{{floor}}</div>
+</div>
