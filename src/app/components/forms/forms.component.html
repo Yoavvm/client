@@ -2,7 +2,7 @@
 
     <div class="form-container">
         <h3>Select which floor you would like to review</h3>
-        <select [(ngModel)]="floor" name="" id="">
+        <select [(ngModel)]="waterService.floor">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -10,14 +10,23 @@
             <option value="5">5</option>
             <option value="6">6</option>
         </select>
-    </div>
-    <div class="form-container">
         <h3>How would you rate the taste of the water on this floor?</h3>
-        <input type="number" min="1" max="10" [(ngModel)]="score" (change)="validateInput()">
+        <input type="number" min="1" max="10" [(ngModel)]="waterService.score" (change)="validateInput()">
+        <h3>Please enter your name</h3>
+        <input type="text" [(ngModel)]="waterService.user"> 
     </div>
 
     <div class="form-container">
-        
+        Your Review:
+        <p>Floor: {{waterService.floor}}</p>
+        <p>Score: {{waterService.score}}</p>
+        <p>Name: {{waterService.user}}</p>
+        <button (click)="handleReview()">Submit</button>
     </div>
-    <div class="form-container">{{floor}}</div>
+
+    <div class="form-container">
+        <p *ngFor="let review of this.waterService.reviews">{{review.reviewOwner}}</p>
+    </div>
+
+    <div class="form-container"></div>
 </div>

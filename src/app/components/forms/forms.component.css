@@ -5,6 +5,11 @@
     border: 5px solid black;
     justify-content: center;
     align-items: center;
+    overflow-y: auto;
+}
+
+.form-container > * {
+    margin: 10px;
 }
 
 .forms {

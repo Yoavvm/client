@@ -7,27 +7,26 @@ import { WaterService } from 'src/app/services/water.service';
   styleUrls: ['./forms.component.css']
 })
 export class FormsComponent implements OnInit {
-  constructor(private waterService: WaterService) { }
+  constructor(public waterService: WaterService) { }
+
+
+
 
   onInit = () => {
-    this.waterService.getAllReviews()
+    this.waterService.getAllReviews();
   }
 
-  floor: number = 1;
-  score: number = 1;
+  handleReview = () => {
+    this.waterService.newReview();
+  }
+
 
   validateInput = () => {
-    if (this.score>0 && this.score <= 10) {
+    if (this.waterService.score>0 && this.waterService.score <= 10) {
       return;
     }
+    this.waterService.score = 1;
     alert('please enter a valid score(1-10)')
-  }
-
-  validateFloor = () => {
-    if (this.floor>0 && this.floor <= 6) {
-      return;
-    }
-    alert('please enter a valid floor(1-6)')
   }
 
   ngOnInit(): void {
